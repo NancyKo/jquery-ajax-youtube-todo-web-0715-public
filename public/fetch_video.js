@@ -19,7 +19,13 @@ $(document).ready(function() {
   function ajaxCall() {
     
     // your code will go here
-
+    var userInput = $('#text-field').val();
+    $.ajax({
+      url: '/widget',
+      type:'GET',
+      data: {search_keyword: userInput}
+    }).done(function(responseBody) {
+      $('#search-results').html(responseBody);
+    });
   }
-
 });
